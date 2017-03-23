@@ -10,9 +10,12 @@ defmodule Discowatch.Bot do
   end
 
   def handle_event({:MESSAGE_CREATE, {msg}, _ws_state}, state) do
+    IO.inspect msg
+
     case msg.content do
+      # Stats for someone else
       "!ow " <> name ->
-        result = Discowatch.Scraper.scrape(name) # Three-element tuple
+        result = Discowatch.Scraper.scrape(name)
 
         case result do
           {wins, rank} ->
@@ -20,8 +23,22 @@ defmodule Discowatch.Bot do
           _ ->
             :ignore
         end
-
-        
+      # Personal stats
+      "!mää" ->
+        case discord_to_battlenet(msg.author.username) do
+          {:ok, name}      ->
+            result = Discowatch.Scraper.scrape(name)
+            case result do
+              {wins, rank} ->
+                Api.create_message(msg.channel_id, "Player: #{name} / Total wins: #{wins} / Competitive rank: #{rank}")
+              _ ->
+                :ignore
+            end
+          {:error, _reason} ->
+            Api.create_message(msg.channel_id, "Not on teh list jou matamou wou")
+          _                ->
+            Api.create_message(msg.channel_id, "Jotain meni vikaan :))))))")
+        end
       _ ->
         :ignore
     end
@@ -34,4 +51,17 @@ defmodule Discowatch.Bot do
   def handle_event(_, state) do
     {:ok, state}
   end
+
+  # Return Battle.net username from Discord username
+  defp discord_to_battlenet(name) do
+    case name do
+      "milkflow"     -> {:ok, "milkflow-1434"}
+      "skaabcurator" -> {:ok, "mahaa-2417"}
+      "Ihmisraunio"  -> {:ok, "Ihmisraunio-2301"}
+      "Karhuttaja"   -> {:ok, "Karhuttaja-2210"}
+      "Cpt.Saatana"  -> {:ok, "CptSaatana-2396"}
+      _              -> {:error, "Not on the list"}
+    end
+  end
+
 end
