@@ -29,9 +29,9 @@ defmodule Discowatch.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:discord_ex, "~> 1.1.8"}, 
+      {:nostrum, "~> 0.2.1"},
       {:floki, "~> 0.15.0"}, 
-      {:httpoison, "~> 0.11.1"}
+      {:httpoison, "~> 0.11.1", override: true}
     ]
   end
 end
