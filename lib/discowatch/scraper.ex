@@ -45,13 +45,22 @@ defmodule Discowatch.Scraper do
   def parse_data(response) do
     case response do
       {:ok, body} ->
-        body
-        |> Floki.find(".masthead-detail span")
-        |> Floki.text
+        process_overwatch_html(body)
       {:error, "not found"} ->
         "Not found"
       _ ->
         "Error :)"
     end
+  end
+
+  # Helper to process HTML of the playoverwatch website
+  defp process_overwatch_html(body) do
+    # Get total wins
+    wins = body |> Floki.find(".masthead-detail span") |> Floki.text
+    # Get rank 
+    rank = body |> Floki.find("#overview-section .show-for-lg .competitive-rank .u-align-center") |> Floki.text
+
+    # Return collection
+    {wins, rank}
   end
 end

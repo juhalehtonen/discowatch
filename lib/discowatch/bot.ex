@@ -11,14 +11,19 @@ defmodule Discowatch.Bot do
 
   def handle_event({:MESSAGE_CREATE, {msg}, _ws_state}, state) do
     case msg.content do
-      "testi" ->
-        Api.create_message(msg.channel_id, "hehe")
-      "owtesti" ->
-        result = Discowatch.Scraper.scrape()
-        Api.create_message(msg.channel_id, result)
+      "!ow " <> name ->
+        result = Discowatch.Scraper.scrape(name) # Three-element tuple
+
+        case result do
+          {wins, rank} ->
+            Api.create_message(msg.channel_id, "Player: #{name} / Total wins: #{wins} / Competitive rank: #{rank}")
+          _ ->
+            :ignore
+        end
+
+        
       _ ->
         :ignore
-        IO.puts "ABUA WAT"
     end
 
     {:ok, state}
