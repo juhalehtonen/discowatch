@@ -50,3 +50,7 @@ To run the release as a daemon: `bin/discowatch start`
 To stop the release as a daemon: `bin/discowatch stop`
 
 Connect a shell to the running release: `bin/discowatch remote_console`
+
+The start command of the boot script will automatically handle running your 
+release as a daemon, but if you would rather use upstart or supervisord or 
+whatever, use the foreground task instead.
