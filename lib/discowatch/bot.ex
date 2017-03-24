@@ -49,15 +49,16 @@ defmodule Discowatch.Bot do
   def output_result(msg, name) do
     result = Discowatch.Scraper.scrape(name)
     case result do
-      {:ok, comp_rank, comp_games, comp_wins, comp_time_played} ->
+      {:ok, rank, games, wins, time, hero} ->
         Api.create_message(
           msg.channel_id,
           """
           Player: #{name}
-          Rank: #{comp_rank}
-          Games: #{comp_games}
-          Wins: #{comp_wins}
-          Time played: #{comp_time_played}
+          Rank: #{rank}
+          Games: #{games}
+          Wins: #{wins}
+          Time played: #{time}
+          Most played hero: #{hero}
           """
         )
       {:error, reason} ->
