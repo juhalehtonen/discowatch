@@ -16,7 +16,6 @@ Currently only two commands are available:
 Note that `floki` requires Rust to be installed if you want to use the (better)
 Rust-based HTML parser. This is optional, and not required by default.
 
-
 Additionally, configure `dev.secret.exs` to interact with the Discord API:
 
 ```elixir
@@ -26,3 +25,12 @@ config :nostrum,
   token: "abc", # The token of your bot as a string
   num_shards: 1 # The number of shards you want to run your bot under, or :auto.
 ```
+
+## Running and building
+
+First of all, run `mix deps.get` to get the dependencies.
+
+For development, you can simply run `iex -S mix` to run the bot and have it
+automatically connect to your Discord server. For releases, Discowatch uses
+`Distillery`. Check out the Distillery docs for details on how to build and
+run releases.
