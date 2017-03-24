@@ -32,7 +32,8 @@ defmodule Discowatch.Mixfile do
     [
       {:nostrum, "~> 0.2.1"},
       {:floki, "~> 0.15.0"},
-      {:httpoison, "~> 0.11.1", override: true}
+      {:httpoison, "~> 0.11.1", override: true},
+      {:distillery, "~> 1.2"}
     ]
   end
 end
