@@ -35,6 +35,18 @@ automatically connect to your Discord server. For releases, Discowatch uses
 run releases.
 
 ### Docker
-To build with Docker, run (replace %CD% if not on Windows):
+
+- First build a Docker image: 
 `docker build --tag=build-elixir -f Dockerfile .`
+
+- Then compile and package the release: 
 `docker run -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
+
+Now you can deploy the resulting `releases/discowatch/releases/0.1.0/discowatch.tar.gz.`
+release tarball anywhere. 
+
+To run the release as a daemon: `bin/discowatch start`
+
+To stop the release as a daemon: `bin/discowatch stop`
+
+Connect a shell to the running release: `bin/discowatch remote_console`
