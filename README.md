@@ -36,24 +36,15 @@ run releases.
 
 ### Docker
 
-- First build a Docker image: 
-
-`docker build --tag=build-elixir -f Dockerfile .`
-
-- Then compile and package the release: 
-
-`docker run -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
-
-Or use the above but with `mix release --upgrade --env=prod` to build an upgrade release.
+1. First build a Docker image: `docker build --tag=build-elixir -f Dockerfile .`
+2. Then compile and package the release: `docker run -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
+3. (Or use the above but with `mix release --upgrade --env=prod` to build an upgrade release)
 
 Now you can deploy the resulting `releases/discowatch/releases/0.1.0/discowatch.tar.gz.`
 release tarball to any Debian based Linux environment (like Ubuntu 16.04). 
 
-To run the release as a daemon: `bin/discowatch start`
-
-To stop the release as a daemon: `bin/discowatch stop`
-
-Connect a shell to the running release: `bin/discowatch remote_console`
+To run the release as a daemon: `bin/discowatch start`, and to stop: `bin/discowatch stop`.
+If you want to, you can also connect a shell to the running release: `bin/discowatch remote_console`
 
 The start command of the boot script will automatically handle running your 
 release as a daemon, but if you would rather use upstart or supervisord or 
