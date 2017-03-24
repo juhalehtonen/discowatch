@@ -35,6 +35,6 @@ automatically connect to your Discord server. For releases, Discowatch uses
 run releases.
 
 ### Docker
-To build with Docker, run:
+To build with Docker, run (replace %CD% if not on Windows):
 `docker build --tag=build-elixir -f Dockerfile .`
 `docker run -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
