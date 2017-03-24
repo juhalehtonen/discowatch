@@ -10,7 +10,6 @@ defmodule Discowatch.Bot do
   end
 
   def handle_event({:MESSAGE_CREATE, {msg}, _ws_state}, state) do
-    IO.inspect msg
 
     case msg.content do
       # Stats for someone else
