@@ -13,7 +13,11 @@ Currently only two commands are available:
 
 ## Configuration
 
-Configure `dev.secret.exs`:
+Note that `floki` requires Rust to be installed if you want to use the (better)
+Rust-based HTML parser.
+
+
+Additionally, configure `dev.secret.exs` to interact with the Discord API:
 
 ```elixir
 use Mix.Config
