@@ -9,7 +9,7 @@ defmodule Discowatch.Scraper do
   @doc """
   Main point of contact.
   """
-  def scrape(name \\ "milkflow-1434") when is_binary(name) do
+  def scrape(name) when is_binary(name) do
     name
     |> player_url()
     |> get_response()
