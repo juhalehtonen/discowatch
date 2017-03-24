@@ -8,7 +8,6 @@ Currently only two commands are available:
 - `!ow battletag-000` returns stats for the given battletag
 - `!mää` returns stats for message sender, if whitelisted (aka. hardcoded)
 
-
 ## Configuration
 Note that `floki` requires Rust to be installed if you want to use the (better)
 Rust-based HTML parser. This is optional, and not required by default.
