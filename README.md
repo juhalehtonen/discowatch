@@ -33,3 +33,8 @@ For development, you can simply run `iex -S mix` to run the bot and have it
 automatically connect to your Discord server. For releases, Discowatch uses
 `Distillery`. Check out the Distillery docs for details on how to build and
 run releases.
+
+### Docker
+To build with Docker, run:
+`docker build --tag=build-elixir -f Dockerfile .`
+`docker run -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
