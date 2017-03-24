@@ -36,7 +36,7 @@ defmodule DiscowatchTest do
 
   @tag :scraper
   test "scraping is successful when provided name exists" do
-    assert {:ok, _wins, _rank} = Scraper.scrape("milkflow-1434")
+    assert {:ok, _, _, _, _}  = Scraper.scrape("milkflow-1434")
   end
 
   @tag :scraper
