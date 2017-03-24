@@ -43,7 +43,7 @@ run releases.
 `docker run -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
 
 Now you can deploy the resulting `releases/discowatch/releases/0.1.0/discowatch.tar.gz.`
-release tarball anywhere. 
+release tarball to any Debian based Linux environment (like Ubuntu 16.04). 
 
 To run the release as a daemon: `bin/discowatch start`
 
