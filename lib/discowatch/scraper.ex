@@ -47,9 +47,9 @@ defmodule Discowatch.Scraper do
       {:ok, body} ->
         process_overwatch_html(body)
       {:error, "not found"} ->
-        "Not found"
+        {:error, "not found"}
       _ ->
-        "Error :)"
+        {:error, "general error"}
     end
   end
 
@@ -61,6 +61,6 @@ defmodule Discowatch.Scraper do
     rank = body |> Floki.find("#overview-section .show-for-lg .competitive-rank .u-align-center") |> Floki.text
 
     # Return collection
-    {wins, rank}
+    {:ok, wins, rank}
   end
 end
