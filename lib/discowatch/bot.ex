@@ -58,7 +58,7 @@ defmodule Discowatch.Bot do
   end
 
   # Return Battle.net username from Discord username
-  defp discord_to_battletag(name) do
+  def discord_to_battletag(name) do
     case name do
       "milkflow"     -> {:ok, "milkflow-1434"}
       "Cpt.Saatana"  -> {:ok, "CptSaatana-2396"}
