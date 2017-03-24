@@ -14,7 +14,7 @@ Currently only two commands are available:
 ## Configuration
 
 Note that `floki` requires Rust to be installed if you want to use the (better)
-Rust-based HTML parser.
+Rust-based HTML parser. This is optional, and not required by default.
 
 
 Additionally, configure `dev.secret.exs` to interact with the Discord API:
