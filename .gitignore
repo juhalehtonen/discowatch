@@ -22,5 +22,5 @@ erl_crash.dump
 # Ignore secret API keys & stuff
 /config/dev.secret.exs
 
-# Ignore docker releases
+# Ignore docker builds
 /releases
