@@ -29,4 +29,5 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
+# Import Discord API config & tokens
 import_config "dev.secret.exs"
