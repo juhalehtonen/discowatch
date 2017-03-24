@@ -15,7 +15,8 @@ defmodule Discowatch.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger]]
+    [extra_applications: [:logger],
+    mod: {Discowatch, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -30,7 +31,7 @@ defmodule Discowatch.Mixfile do
   defp deps do
     [
       {:nostrum, "~> 0.2.1"},
-      {:floki, "~> 0.15.0"}, 
+      {:floki, "~> 0.15.0"},
       {:httpoison, "~> 0.11.1", override: true}
     ]
   end

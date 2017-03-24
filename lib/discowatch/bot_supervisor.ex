@@ -1,10 +1,16 @@
 defmodule Discowatch.BotSupervisor do
-  def start do
-    import Supervisor.Spec
+  use Supervisor
 
-    # List comprehension creates a consumer per cpu core
-    children = for i <- 1..System.schedulers_online, do: worker(Discowatch.Bot, [], id: i)
-
-    Supervisor.start_link(children, strategy: :one_for_one)
+  def start_link do
+    Supervisor.start_link(__MODULE__, :ok)
   end
+
+  def init(:ok) do
+    children = [
+      worker(Discowatch.Bot, [])
+    ]
+
+    supervise(children, strategy: :one_for_one)
+  end
+
 end

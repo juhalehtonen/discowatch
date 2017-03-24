@@ -18,7 +18,8 @@ defmodule Discowatch.Bot do
 
         case result do
           {wins, rank} ->
-            Api.create_message(msg.channel_id, "Player: #{name} / Total wins: #{wins} / Competitive rank: #{rank}")
+            :ignore
+            #Api.create_message(msg.channel_id, "Player: #{name} / Total wins: #{wins} / Competitive rank: #{rank}")
           _ ->
             :ignore
         end
@@ -29,14 +30,17 @@ defmodule Discowatch.Bot do
             result = Discowatch.Scraper.scrape(name)
             case result do
               {wins, rank} ->
-                Api.create_message(msg.channel_id, "Player: #{name} / Total wins: #{wins} / Competitive rank: #{rank}")
+                :ignore
+                #Api.create_message(msg.channel_id, "Player: #{name} / Total wins: #{wins} / Competitive rank: #{rank}")
               _ ->
                 :ignore
             end
           {:error, _reason} ->
-            Api.create_message(msg.channel_id, "Not on teh list jou matamou wou")
+            :ignore
+            #Api.create_message(msg.channel_id, "Not on teh list jou matamou wou")
           _                ->
-            Api.create_message(msg.channel_id, "Jotain meni vikaan :))))))")
+            :ignore
+            #Api.create_message(msg.channel_id, "Jotain meni vikaan :))))))")
         end
       _ ->
         :ignore
