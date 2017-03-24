@@ -76,6 +76,7 @@ defmodule Discowatch.Bot do
       "skaabcurator" -> {:ok, "mahaa-2417"}
       "Ihmisraunio"  -> {:ok, "Ihmisraunio-2301"}
       "Karhuttaja"   -> {:ok, "Karhuttaja-2210"}
+      "Saketus"      -> {:ok, "Saketus-2812"}
       _              -> {:error, "Not on the list"}
     end
   end
