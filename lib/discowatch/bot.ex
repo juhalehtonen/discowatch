@@ -5,6 +5,7 @@ defmodule Discowatch.Bot do
   Most importantly, `handle_event({:MESSAGE_CREATE, {msg}, _ws_state}, state)`
   is responsible for capturing messages sent on Discord and processing them.
   """
+
   use Nostrum.Consumer
   alias Nostrum.Api
 

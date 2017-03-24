@@ -35,8 +35,11 @@ defmodule Discowatch.Scraper do
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         {:error, "not found"}
       {:error, %HTTPoison.Error{reason: reason}} ->
-        IO.inspect reason
+        {:error, reason}
     end
+  end
+  def get_response(_url) do
+    {:error, "passed url not in binary format"}
   end
 
   @doc """
@@ -57,7 +60,7 @@ defmodule Discowatch.Scraper do
   defp process_overwatch_html(body) do
     # Get total wins
     wins = body |> Floki.find(".masthead-detail span") |> Floki.text
-    # Get rank 
+    # Get rank
     rank = body |> Floki.find("#overview-section .show-for-lg .competitive-rank .u-align-center") |> Floki.text
 
     # Return collection
