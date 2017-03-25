@@ -9,17 +9,23 @@ Currently only two commands are available:
 - `!mää` returns stats for message sender, if whitelisted (aka. hardcoded)
 
 ## Configuration
-Note that `floki` requires Rust to be installed if you want to use the (better)
-Rust-based HTML parser. This is optional, and not required by default.
-
-Additionally, configure `dev.secret.exs` to interact with the Discord API:
+Configure `dev.secret.exs` with Discord API token and the list of users you want
+to store for the `!mää` command:
 
 ```elixir
 use Mix.Config
 
+# Configure Discord token
 config :nostrum,
   token: "abc", # The token of your bot as a string
   num_shards: 1 # The number of shards you want to run your bot under, or :auto.
+
+# Configure map of Discord username <-> Battletag combinations
+config :discowatch, :d2b, %{
+    "User 1" => "user1-1434",
+    "User 2" => "user2-2396",
+    "User 3" => "user3-2417"
+}
 ```
 
 ## Testing
@@ -40,11 +46,11 @@ run releases.
 3. (Or use the above but with `mix release --upgrade --env=prod` to build an upgrade release)
 
 Now you can deploy the resulting `releases/discowatch/releases/0.1.0/discowatch.tar.gz.`
-release tarball to any Debian based Linux environment (like Ubuntu 16.04). 
+release tarball to any Debian based Linux environment (like Ubuntu 16.04).
 
 To run the release as a daemon: `bin/discowatch start`, and to stop: `bin/discowatch stop`.
 If you want to, you can also connect a shell to the running release: `bin/discowatch remote_console`
 
-The start command of the boot script will automatically handle running your 
-release as a daemon, but if you would rather use upstart or supervisord or 
+The start command of the boot script will automatically handle running your
+release as a daemon, but if you would rather use upstart or supervisord or
 whatever, use the foreground task instead.
