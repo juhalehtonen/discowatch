@@ -68,17 +68,15 @@ defmodule Discowatch.Bot do
     end
   end
 
-  # Return Battle.net username from Discord username
+  @doc """
+  Return Battle.net username for given Discord username, or error if not set.
+  """
   def discord_to_battletag(name) do
-    case name do
-      "milkflow"     -> {:ok, "milkflow-1434"}
-      "Cpt.Saatana"  -> {:ok, "CptSaatana-2396"}
-      "skaabcurator" -> {:ok, "mahaa-2417"}
-      "Ihmisraunio"  -> {:ok, "Ihmisraunio-2301"}
-      "Karhuttaja"   -> {:ok, "Karhuttaja-2210"}
-      "Saketus"      -> {:ok, "Saketus-2812"}
-      "Basic Forest" -> {:ok, "Plut0us-2241"}
-      _              -> {:error, "Not on the list"}
+    # Map of Discord username <-> Battletag combinations
+    if Map.has_key?(Application.get_env(:discowatch, :d2b), name) do
+      {:ok, Map.get(name)}
+    else
+      {:error, "Not on the list"}
     end
   end
 end
