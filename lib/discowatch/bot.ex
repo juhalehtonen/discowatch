@@ -74,7 +74,7 @@ defmodule Discowatch.Bot do
   def discord_to_battletag(name) do
     # Map of Discord username <-> Battletag combinations
     if Map.has_key?(Application.get_env(:discowatch, :d2b), name) do
-      {:ok, Map.get(name)}
+      {:ok, Map.get(Application.get_env(:discowatch, :d2b), name)}
     else
       {:error, "Not on the list"}
     end
