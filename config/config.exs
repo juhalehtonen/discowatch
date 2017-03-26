@@ -27,17 +27,10 @@ use Mix.Config
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-#     import_config "#{Mix.env}.exs"
 
-# Configure names
-config :discowatch, :d2b, %{
-    "Username" => "username-1234"
-}
-
-if Mix.env != "test" do
-  # Import config for Discord2Battletag names
-  import_config "names.exs"
-
-  # Import Discord API config & tokens
-  import_config "dev.secret.exs"
-end
+# Configure Discord API token
+config :nostrum,
+  token: System.get_env("DISCORD_API_TOKEN"),
+  num_shards: 1 # The number of shards you want to run your bot under, or :auto.
+  
+import_config "#{Mix.env}.exs"

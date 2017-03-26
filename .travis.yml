@@ -3,5 +3,3 @@ elixir:
   - 1.4.0
 otp_release:
   - 18.2
-script:
-  - "MIX_ENV=test mix do deps.get, compile"
