@@ -8,7 +8,7 @@ Overwatch yet). Fetches OW statistics for users and replies them back on demand.
 Currently only two commands are available:
 
 - `!ow battletag-000` returns stats for the given battletag
-- `!mää` returns stats for message sender, if whitelisted (aka. hardcoded)
+- `!mää` returns stats for message sender, if added to `config/usernames.exs`
 
 ## Configuration
 Set the `DISCORD_API_TOKEN` environment variable to your Discord API token, and 
