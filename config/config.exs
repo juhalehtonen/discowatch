@@ -29,8 +29,15 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
-# Import config for Discord2Battletag names
-import_config "names.exs"
+# Configure names
+config :discowatch, :d2b, %{
+    "Username" => "username-1234"
+}
 
-# Import Discord API config & tokens
-import_config "dev.secret.exs"
+if Mix.env != "test" do
+  # Import config for Discord2Battletag names
+  import_config "names.exs"
+
+  # Import Discord API config & tokens
+  import_config "dev.secret.exs"
+end
