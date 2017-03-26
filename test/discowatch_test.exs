@@ -12,10 +12,14 @@ defmodule DiscowatchTest do
   alias Discowatch.Bot
   doctest Discowatch
 
+
   ## BOT
   @tag :bot
   test "discord name to battletag conversion works when name is whitelisted" do
-    assert {:ok, "milkflow-1434"} = Bot.discord_to_battletag("milkflow")
+    [{discord, _battletag}] = Application.get_env(:discowatch, :d2b)
+    |> Enum.take(1)
+
+    assert {:ok, _battletag} = Bot.discord_to_battletag(discord)
   end
 
   @tag :bot
@@ -28,15 +32,19 @@ defmodule DiscowatchTest do
     assert {:ok, _state} = Bot.handle_event({:GATOS_PERROS}, %{})
   end
 
+
   ## SCRAPER
   @tag :scraper
-  test "correct url is rturned depending on the name passed to it" do
+  test "correct url is returned depending on the name passed to it" do
     assert "https://playoverwatch.com/en-us/career/pc/eu/abc" = Scraper.player_url("abc")
   end
 
   @tag :scraper
   test "scraping is successful when provided name exists" do
-    assert {:ok, _, _, _, _, _}  = Scraper.scrape("milkflow-1434")
+    [{_discord, battletag}] = Application.get_env(:discowatch, :d2b)
+    |> Enum.take(1)
+
+    assert {:ok, _, _, _, _, _}  = Scraper.scrape(battletag)
   end
 
   @tag :scraper
@@ -46,6 +54,6 @@ defmodule DiscowatchTest do
 
   @tag :scraper
   test "getting a response not attempted when passed url is not in binary format" do
-    {:error, "passed url not in binary format"} = Scraper.get_response(1)
+    assert {:error, "passed url not in binary format"} = Scraper.get_response(1)
   end
 end
