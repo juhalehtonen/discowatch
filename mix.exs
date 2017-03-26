@@ -3,7 +3,7 @@ defmodule Discowatch.Mixfile do
 
   def project do
     [app: :discowatch,
-     version: "0.1.6",
+     version: "0.1.10",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -33,7 +33,8 @@ defmodule Discowatch.Mixfile do
       {:nostrum, "~> 0.2.1"},
       {:floki, "~> 0.15.0"},
       {:httpoison, "~> 0.11.1", override: true},
-      {:distillery, "~> 1.2"}
+      {:distillery, "~> 1.2"},
+      {:conform, "~> 2.3"}
     ]
   end
 end
