@@ -2,6 +2,8 @@
 A simple Discord bot and web scraper (as Blizzard hasn't put out a proper API for
 Overwatch yet). Fetches OW statistics for users and replies them back on demand.
 
+[![Build Status](https://travis-ci.org/juhalehtonen/discowatch.svg?branch=master)](https://travis-ci.org/juhalehtonen/discowatch)
+
 ## Usage
 Currently only two commands are available:
 
@@ -9,18 +11,8 @@ Currently only two commands are available:
 - `!mää` returns stats for message sender, if whitelisted (aka. hardcoded)
 
 ## Configuration
-Configure `dev.secret.exs` with Discord API token:
-
-```elixir
-use Mix.Config
-
-# Configure Discord token
-config :nostrum,
-  token: "abc", # The token of your bot as a string
-  num_shards: 1 # The number of shards you want to run your bot under, or :auto.
-```
-
-..and `names.exs` with the list of users you want to store for the `!mää` command:
+Set the `DISCORD_API_TOKEN` environment variable to your Discord API token, and 
+configure `usernames.exs` with list of users you want to store for the `!mää` command:
 
 ```elixir
 use Mix.Config
