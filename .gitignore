@@ -22,5 +22,6 @@ erl_crash.dump
 # Ignore secret API keys & stuff
 /config/dev.secret.exs
 
-# Ignore Docker builds (as we point to this directory when we build stuff)
+# Ignore Docker builds (as we point to this directory when we build stuff, and
+# in the rel/config.exs file).
 /releases
