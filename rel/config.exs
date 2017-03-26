@@ -27,6 +27,7 @@ environment :dev do
   set cookie: :"2!2@s.:1.~8]_Pa,}W7{pz<m)n:Vq1)tDAVU;)GeBw)i049C3i1tq_oXrBal12H;"
 end
 
+# Make sure :include_erts is set to true if you want to include Erlang
 environment :prod do
   set include_erts: true
   set include_src: false
@@ -38,6 +39,8 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
+
+# Get current version from mix.exs and set the output directory
 release :discowatch do
   set version: current_version(:discowatch)
   set output_dir: './releases/discowatch'
