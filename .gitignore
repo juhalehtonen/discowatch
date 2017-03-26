@@ -20,8 +20,7 @@ erl_crash.dump
 *.ez
 
 # Ignore secret API keys & stuff
-/config/dev.secret.exs
-/config/names.exs
+/config/usernames.exs
 
 # Ignore Docker builds (as we point to this directory when we build stuff, and
 # in the rel/config.exs file).
