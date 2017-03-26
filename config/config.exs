@@ -29,5 +29,8 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
+# Import config for Discord2Battletag names
+import_config "names.exs"
+
 # Import Discord API config & tokens
 import_config "dev.secret.exs"

@@ -9,8 +9,7 @@ Currently only two commands are available:
 - `!mää` returns stats for message sender, if whitelisted (aka. hardcoded)
 
 ## Configuration
-Configure `dev.secret.exs` with Discord API token and the list of users you want
-to store for the `!mää` command:
+Configure `dev.secret.exs` with Discord API token:
 
 ```elixir
 use Mix.Config
@@ -19,12 +18,18 @@ use Mix.Config
 config :nostrum,
   token: "abc", # The token of your bot as a string
   num_shards: 1 # The number of shards you want to run your bot under, or :auto.
+```
+
+..and `names.exs` with the list of users you want to store for the `!mää` command:
+
+```elixir
+use Mix.Config
 
 # Configure map of Discord username <-> Battletag combinations
 config :discowatch, :d2b, %{
-    "User 1" => "user1-1434",
-    "User 2" => "user2-2396",
-    "User 3" => "user3-2417"
+    "User 1" => "usertag1-1434",
+    "User 2" => "usertag2-2396",
+    "User 3" => "usertag3-2417"
 }
 ```
 
