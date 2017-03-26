@@ -1,8 +1,8 @@
+[![Build Status](https://travis-ci.org/juhalehtonen/discowatch.svg?branch=master)](https://travis-ci.org/juhalehtonen/discowatch)
+
 # Discowatch
 A simple Discord bot and web scraper (as Blizzard hasn't put out a proper API for
 Overwatch yet). Fetches OW statistics for users and replies them back on demand.
-
-[![Build Status](https://travis-ci.org/juhalehtonen/discowatch.svg?branch=master)](https://travis-ci.org/juhalehtonen/discowatch)
 
 ## Usage
 Currently only two commands are available:
