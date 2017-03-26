@@ -1,6 +1,7 @@
 .dockerignore  # check and see if this is excluded by default
 .git
 .gitignore
+.travis.yml
 .log
 tmp
 
