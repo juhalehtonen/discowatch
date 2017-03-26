@@ -10,9 +10,11 @@ RUN /usr/local/bin/mix local.hex --force && \
     /usr/local/bin/mix local.rebar --force && \
     /usr/local/bin/mix hex.info
 
+# Copy files
 WORKDIR /app
 COPY . .
 
+# Get dependencies
 RUN mix deps.get
 
 CMD ["bash"]
