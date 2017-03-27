@@ -44,6 +44,9 @@ end
 release :discowatch do
   set version: current_version(:discowatch)
   set output_dir: './releases/discowatch'
+  set applications: [
+    :runtime_tools
+  ]
   plugin Conform.ReleasePlugin
 end
 
