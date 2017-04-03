@@ -39,7 +39,7 @@ run releases.
 ### Docker
 
 1. First build a Docker image: `docker build --tag=build-elixir -f Dockerfile .`
-2. Then compile and package the release: `docker run -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
+2. Then compile and package the release: `docker run -e MIX_ENV=prod -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
 3. (Or use the above but with `mix release --upgrade --env=prod` to build an upgrade release)
 
 Now you can deploy the resulting `releases/discowatch/releases/0.1.0/discowatch.tar.gz.`
