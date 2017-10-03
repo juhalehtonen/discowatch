@@ -31,7 +31,7 @@ end
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :"b0MFL(UPV@T1k1x?U`[3GKoC>*Wmr5g?VczNW@CT>IQl|6HD!t8ZeT0k3AQ(70h5"
+  set cookie: :crypto.hash(:sha256, System.get_env("DISCOWATCH_COOKIE")) |> Base.encode16 |> String.to_atom
 end
 
 # You may define one or more releases in this file.
