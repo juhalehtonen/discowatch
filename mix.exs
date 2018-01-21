@@ -34,7 +34,9 @@ defmodule Discowatch.Mixfile do
       {:floki, "~> 0.15.0"},
       {:httpoison, "~> 0.11.1", override: true},
       {:distillery, "~> 1.2"},
-      {:conform, "~> 2.3"}
+      {:conform, "~> 2.3"},
+      {:gun, git: "https://github.com/ninenines/gun.git", ref: "dd1bfe4d6f9fb277781d922aa8bbb5648b3e6756", override: true},
+      {:websocket_client, "~> 1.3", override: true}
     ]
   end
 end

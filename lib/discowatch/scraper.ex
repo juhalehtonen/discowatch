@@ -22,7 +22,7 @@ defmodule Discowatch.Scraper do
   Name must include the numeric code.
   """
   def player_url(name) do
-    "https://playoverwatch.com/en-us/career/pc/eu/#{name}"
+    "https://playoverwatch.com/en-us/career/pc/#{name}"
   end
 
   @doc """
@@ -63,9 +63,9 @@ defmodule Discowatch.Scraper do
     # Get total competitive games
     games = body |> Floki.find("#competitive > section:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(7) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2)") |> Floki.text
     # Get total competitive wins
-    wins =  body |> Floki.find("#competitive > section:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(7) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)") |> Floki.text
+    wins =  body |> Floki.find("#competitive > section:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(6) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(3) > td:nth-child(2)") |> Floki.text
     # Get total competitive time played
-    time = body |> Floki.find("#competitive > section:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(7) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(5) > td:nth-child(2)") |> Floki.text
+    time = body |> Floki.find("#competitive > section:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(6) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2)") |> Floki.text
     # Get most played competitive hero
     hero = body |> Floki.find("#competitive > section:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)") |> Floki.text
 
