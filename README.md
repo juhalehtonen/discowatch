@@ -41,11 +41,11 @@ run releases.
 1. First build a Docker image: `docker build --tag=build-elixir -f Dockerfile .`
 2. Then compile and package the release:
 ```
-docker run -e MIX_ENV='prod' -e DISCOWATCH_COOKIE='yourerlcrfdsffoofsdf34kie' -e DISCORD_API_TOKEN='NDA0NjM5MTY0MTg1ODM3NTcw.DUY7_Q.7X8IeCIFSFVIg7kJ4tg29O3WXoA' -v $PWD/releases:/app/releases build-elixir mix release --env=prod
+docker run -e MIX_ENV='prod' -e DISCOWATCH_COOKIE='yourerlcookie' -e DISCORD_API_TOKEN='yourapitoken' -v $PWD/releases:/app/releases build-elixir mix release --env=prod
 ```
 3. (Or use the above but with `mix release --upgrade --env=prod` to build an upgrade release)
 
-Now you can deploy the resulting `releases/discowatch/releases/0.1.0/discowatch.tar.gz.`
+Now you can deploy the resulting `releases/discowatch/releases/0.2.0/discowatch.tar.gz.`
 release tarball to any Debian based Linux environment (like Ubuntu 16.04).
 
 To run the release as a daemon: `bin/discowatch start`, and to stop: `bin/discowatch stop`.
