@@ -11,7 +11,7 @@ Currently only two commands are available:
 - `!mää` returns stats for message sender, if added to `config/usernames.exs`
 
 ## Configuration
-Set the `DISCORD_API_TOKEN` environment variable to your Discord API token, and 
+Set the `DISCORD_API_TOKEN` environment variable to your Discord API token, and
 configure `usernames.exs` with list of users you want to store for the `!mää` command:
 
 ```elixir
@@ -39,7 +39,10 @@ run releases.
 ### Docker
 
 1. First build a Docker image: `docker build --tag=build-elixir -f Dockerfile .`
-2. Then compile and package the release: `docker run -e MIX_ENV=prod -v %CD%/releases:/app/releases build-elixir mix release --env=prod`
+2. Then compile and package the release:
+```
+docker run -e MIX_ENV='prod' -e DISCOWATCH_COOKIE='yourerlcrfdsffoofsdf34kie' -e DISCORD_API_TOKEN='NDA0NjM5MTY0MTg1ODM3NTcw.DUY7_Q.7X8IeCIFSFVIg7kJ4tg29O3WXoA' -v $PWD/releases:/app/releases build-elixir mix release --env=prod
+```
 3. (Or use the above but with `mix release --upgrade --env=prod` to build an upgrade release)
 
 Now you can deploy the resulting `releases/discowatch/releases/0.1.0/discowatch.tar.gz.`

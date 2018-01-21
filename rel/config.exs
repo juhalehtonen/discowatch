@@ -49,4 +49,3 @@ release :discowatch do
   ]
   plugin Conform.ReleasePlugin
 end
-
